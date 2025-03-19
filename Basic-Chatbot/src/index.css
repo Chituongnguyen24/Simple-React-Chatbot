@@ -25,9 +25,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f9f9f9;
 }
 
 h1 {
@@ -35,34 +37,48 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #198654;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+/* === CHAT MESSAGE STYLING === */
+.chat-message {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Fix lỗi layout */
+  margin-bottom: 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #f1f1f1;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #198654;
+/* Tin nhắn của robot (bên trái) */
+.bot-message {
+  justify-content: flex-start;
+}
+
+/* Tin nhắn của user (bên phải) */
+.user-message {
+  justify-content: flex-end;
+}
+
+/* Avatar */
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+
+.message-content {
+  background-color: #f1f1f1;
+  padding: 10px 15px;
+  border-radius: 10px;
+  max-width: 60%;
+}
+
+
+.message-content {
+  background-color: #e0e0e0; 
+}
+
+@media (max-width: 600px) {
+  .message-content {
+    max-width: 80%;
   }
 }
